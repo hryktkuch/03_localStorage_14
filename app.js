@@ -39,7 +39,7 @@ $("#save").on("click", function() {
     var datalist={y,m,d,b64};
     localStorage.setItem(localStorage.length, JSON.stringify(datalist));
     console.log("saved");
-    console.log(datalist[0]);
+    $("#result").text("保存しました");
 });
 
 var correct;
@@ -81,20 +81,31 @@ $("#button0").on("click", function() {
     if (correct==0) {
         $("#seigo").text("正解");
     } else {
-        $("#seigo").text("不正解");
+        $("#seigo").text("不正解 正解は"+$("#button"+correct).text());
     }
 });
 $("#button1").on("click", function() {
     if (correct==1) {
         $("#seigo").text("正解");
     } else {
-        $("#seigo").text("不正解");
+        $("#seigo").text("不正解 正解は"+$("#button"+correct).text());
     }
 });
 $("#button2").on("click", function() {
     if (correct==2) {
         $("#seigo").text("正解");
     } else {
-        $("#seigo").text("不正解");
+        $("#seigo").text("不正解 正解は"+$("#button"+correct).text());
+        console.log($("#button2").text());
     }
+});
+
+$("#record_function").on("click", function() {
+    $("#record_display").css("display", "block");
+    $("#quiz_display").css("display", "none");
+    console.log("a");
+});
+$("#quiz_function").on("click", function() {
+    $("#record_display").css("display", "none");
+    $("#quiz_display").css("display", "block");
 });
